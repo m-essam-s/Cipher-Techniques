@@ -64,5 +64,3 @@ Decrypted Message: My name is Mohamed Essam Saeid, I'm a software engineer at KS
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-You can customize this `README.md` template according to your preferences and any additional information you want to provide about your code. Let me know if you need further assistance!
