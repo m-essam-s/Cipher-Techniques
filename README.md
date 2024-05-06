@@ -6,4 +6,4 @@ There are various types of ciphers, including:
 
 ## Note
 
-> ### This repo is still under dev.
+> ### This repo is still under dev, Thank You.
