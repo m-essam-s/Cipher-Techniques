@@ -1,17 +1,10 @@
 from math import ceil as _roundUp # ceil is a function that rounds up
 class Cipher:
 # constructor
-
     class RailFenceTransposition:
-        def __init__(self):
-            self._key = ""
-            pass
+        pass
         
-    class RowTransposition:
-        def __init__(self):
-            self._key = ""
-            pass
-    class ColumnarTransposition:
+    class ColumnarTransposition: # m-essam-s
         # constructor
         def __init__(self):
             self._key = "" # Key
@@ -67,7 +60,7 @@ class Cipher:
             # the empty cell of the matix 
             _numberOfNulls= int((_noOfRows * _noOfColumns) - len(_plainText)) # Calculate the number of nulls
             _plainTextList.extend('_'*_numberOfNulls) # Extend the plain text list with the nulls
-            # create Matrix and insert message and 
+            # create Matrix and insert _plainText and 
             # padding characters row-wise
             matrix = [_plainTextList[i: i + _noOfColumns] for i in range(0, len(_plainTextList), _noOfColumns)] # Create the matrix
 
@@ -106,7 +99,7 @@ class Cipher:
                 _keyIndex += 1 # Increment the key index
 
             # convert decrypted msg matrix into a string
-            _plainText="" # Text empty Text to store the decrypted message
+            _plainText="" # Text empty Text to store the decrypted _plainText
             _plainText = ''.join(sum(dec_cipher, [])) # Join the characters in the matrix
 
 
@@ -118,5 +111,19 @@ class Cipher:
     
     class doubleColumnarTransposition:
         def __init__(self):
-            self._key = ""
+            self._key = "" # Key
+            self._plainText = ""
+            self._cipherText = ""
+        
+        @staticmethod
+        def _keyHandler(_key):
             pass
+        
+        @staticmethod
+        def _encryption(_plainText, _key):
+            pass
+        
+        @staticmethod
+        def _decryption(_cipherText, _key):
+            pass
+        
