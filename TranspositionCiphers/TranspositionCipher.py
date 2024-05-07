@@ -2,7 +2,48 @@ from math import ceil as _roundUp # ceil is a function that rounds up
 class Cipher:
 # constructor
     class RailFenceTransposition:
-        pass
+        def __init__(self):
+            self._key = "" # Key
+            self._plainText = "" # Plain text
+            self._cipherText = "" # Cipher text
+        
+        def _encryption(_plainText, _key):
+            fence = [[] for _ in range(_key)]
+            rail = 0
+            direction = 1
+            for char in _plainText:
+                fence[rail].append(char)
+                rail += direction
+                if rail == _key - 1 or rail == 0:
+                    direction = -direction
+            cipherText = ''.join([c for rail in fence for c in rail])
+            return cipherText
+        
+        def _decryption(_cipherText, _key):
+            fence = [[] for _ in range(_key)]
+            rail = 0
+            direction = 1
+            for char in _cipherText:
+                fence[rail].append(None)
+                rail += direction
+                if rail ==_key - 1 or rail == 0:
+                    direction = -direction
+            idx = 0
+            for i in range(_key):
+                for j in range(len(fence[i])):
+                    fence[i][j] = _cipherText[idx]
+                    idx += 1
+            rail = 0
+            direction = 1
+            plainText = ''
+            for _ in range(len(_cipherText)):
+                plainText += fence[rail][0]
+                del fence[rail][0]
+                rail += direction
+                if rail == _key - 1 or rail == 0:
+                    direction = -direction
+            return plainText
+
         
     class ColumnarTransposition: # m-essam-s
         # constructor
