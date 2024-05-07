@@ -20,7 +20,7 @@ Malak Khaled Task:
 2. Implement the _performRailFenceTransposition function to perform the Rail Fence Transposition Cipher technique.
 3. Test the Rail Fence Transposition Cipher technique, and.
 4. make sure it works correctly.
-
+(Done)..........................
 
 Best of luck.
 '''
@@ -91,7 +91,20 @@ def _performColumnarTransposition(PlainText, key): # OMER SAMEH TASK: please deb
 
 def _performRailFenceTransposition(): # MALAK KHALED TASK
     rail_fence=Cipher.RailFenceTransposition() # Create an object of the RailFenceTransposition class
-    pass
+    print("1:encrypt  2:decrypt")
+    choice =input("Enter your choice (1 or 2): ") 
+    if choice == '1':
+        print("Encryption Selected: Rail Fence Cipher")
+        msg = input("Enter your message: ").strip()
+        key = int(input("Enter The Depth (a single number): "))
+        print("Encrypted Message:", rail_fence._encryption(msg, key))
+
+    elif choice == '2':
+        print("Decryption Selected: Rail Fence Cipher")
+        CI = input("Enter your Cipher Text: ").strip()
+        key = int(input("Enter The Depth (a single number): "))
+        print("Decrypted Message:", rail_fence._decryption(CI, key))
+
     
     
 
