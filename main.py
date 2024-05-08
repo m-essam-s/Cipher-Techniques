@@ -24,8 +24,8 @@ Malak Khaled Task:
 
 Best of luck.
 '''
-def _performColumnarTransposition(PlainText, key): # OMER SAMEH TASK: please debug and test this function and make sure it works correct logic and after malak finish her task please debug and test the whole program
-    columnar_transpos=Cipher.ColumnarTransposition() # Create an object of the TranspositionCipher class
+def _performColumnarTransposition():
+    columnar_transpose=Cipher.ColumnarTransposition() # Create an object of the TranspositionCipher class
     print("Columnar Transposition Cipher Technique")
     print("You've Three Options:")
     print("1. Uniqueness of the or key Handling repeating characters in the key")
@@ -33,60 +33,63 @@ def _performColumnarTransposition(PlainText, key): # OMER SAMEH TASK: please deb
     print("3. A uniqueness integer key such as 123456789 or 987654321 the length of the key must be in the range of 0 to 9")
     choice = int(input("Enter the option you want to use: "))
     if choice == 1:
+        # Option 1: Handle repeating characters in the key
         PlainText = input("Enter the plain text: ")
-        # "My name is Mohamed Essam Saeid, I'm a software engineering student at KSIU" # Plain text
         key = input("Enter the key: ")
-            #"HackingIsFun" # Key
-        if not isinstance(PlainText, str) or not isinstance(key, str):
-            print("The plain text and the key must be a string")
-            exit()
         if len(key) != len(list(dict.fromkeys(key))):
             print("The key is not unique.")
             print("But it can handle repeating characters.")
-            chois=input("Do you want to continue? (y/n): ")
-            if chois.lower() != "y":
+            choice=input("Do you want to continue? (y/n): ")
+            if choice.lower() != "y":
                 exit()
-            print("The key after handling: ",columnar_transpos._keyHandler(key))
+            print("The key after handling: ",columnar_transpose._keyHandler(key))
             
     elif choice == 2:
+        # Option 2: An integer key in the range of 1 to 9
         PlainText = input("Enter the plain text: ")
-        
-        Wrong_key = 0
         while True:
-            key = int(input("Enter the key: "))    
-            try:
-                key = int(key)
-            except ValueError:
-                if Wrong_key == 3:
-                    print("You have entered wrong key 3 times.")
-                    exit()
-                Wrong_key += 1
-                print("The key must be an integer")
-                print("You have", Wrong_key, " times.")
+          try:
+            key = int(input("Enter the key: "))  
+            if key<0 or key > 9:
+              print("You have entered wrong key.")
+              print("The key must be an integer from 1 to 9.")
+              choice=input("Do you want to exit? (y/n): ")
+              if choice.lower() == "y":
+                exit()
+            else:
+              key = ''.join([str(i) for i in range(key+1)])
+              break
+          except ValueError:
+            print("Invalid input. Please enter an integer.")
+            choice=input("Do you want to exit? (y/n): ")
+            if choice.lower() == "y":
+                exit()    
 
     elif choice == 3:
+        # Option 3: A uniqueness integer key in the range of 0 to 9
         PlainText = input("Enter the plain text: ")
-        # "My name is Mohamed Essam Saeid, I'm a software engineering student at KSIU" # Plain text
-        key = input("Enter the key: ")
-            #"HackingIsFun" # Key
-        if not isinstance(PlainText, str) or not isinstance(key, int):
-            print("The plain text must be a string and the key must be an integer")
-            exit()
-        if len(str(key)) != len(list(dict.fromkeys(str(key)))):
-            print("The key is not unique.")
-            print("But it can handle repeating characters.")
-            chois=input("Do you want to continue? (y/n): ")
-            if chois.lower() != "y":
-                exit()
-            print("The key after handling: ",columnar_transpos._keyHandler(str(key)))
-        if len(str(key)) < 0 or len(str(key)) > 9:
-            print("The key must be in the range of 0 to 9")
-            exit()
-        key = str(key)
-    
-    CipherText = columnar_transpos._encryption(PlainText, key)  # Encrypt the plain text
+        while True:
+            try:
+                key = int(input("Enter the key: "))
+                if len(str(key)) != len(list(dict.fromkeys(str(key)))):
+                    print("Invalid input. The key should be in range from 0 to 9 and unique.")
+                    choice=input("Do you want to exit? (y/n): ")
+                    if choice.lower() == "y":
+                        exit()
+                else:    
+                    key = str(key)
+                    break
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
+                choice=input("Do you want to exit? (y/n): ")
+                if choice.lower() == "y":
+                    exit()  
+
+
+    CipherText = columnar_transpose._encryption(PlainText, key)  # Encrypt the plain text
     print("Encrypted Message: ", CipherText)  # Print the encrypted message
-    print("Decrypted Message: ", columnar_transpos._decryption(CipherText, key))  # Print the decrypted message
+    print("Decrypted Message: ", columnar_transpose._decryption(CipherText, key))  # Print the decrypted message
+
 
 
 def _performRailFenceTransposition(): # MALAK KHALED TASK
