@@ -1,30 +1,6 @@
 from TranspositionCiphers.TranspositionCipher import Cipher
-'''
-OMER SAMEH TASKs:
-1. Complet the Implementation of _performColumnarTransposition function
-this function should take the plain text and the key as input from the user and then:
-    a. Check the uniqueness of the key or handle repeating characters in the key.
-    b. Check if the key is an integer in the range of 1 to 9.
-    c. Check if the key is a unique integer key such as 123456789 or 987654321, the length of the key must be in the range of 0 to 9.
-    d. Encrypt the plain text using the Columnar Transposition Cipher technique.
-    e. Print the encrypted message.
-    f. Decrypt the encrypted message using the Columnar Transposition Cipher technique.
-2. Test the Columnar Transposition Cipher technique, and.
-3. make sure it works correctly.
-4. Debug and test the whole program, !!!!!! after malak khaled end her task.
-5. PLEASE DON'T FORGET TO ADD COMMENTS TO THE CODE.
-6. PLEASE DON'T TOUCH THE CODE OF THE ColumnarTransposition() class in the TranspositionCipher.py file.
 
-Malak Khaled Task:
-1. Implement the Rail Fence Transposition Cipher technique in the RailFenceTransposition class.
-2. Implement the _performRailFenceTransposition function to perform the Rail Fence Transposition Cipher technique.
-3. Test the Rail Fence Transposition Cipher technique, and.
-4. make sure it works correctly.
-(Done)..........................
-
-Best of luck.
-'''
-def _performColumnarTransposition():
+def _performColumnarTransposition(): # OMER's Task
     columnar_transpose=Cipher.ColumnarTransposition() # Create an object of the TranspositionCipher class
     print("Columnar Transposition Cipher Technique")
     print("You've Three Options:")
@@ -92,7 +68,7 @@ def _performColumnarTransposition():
 
 
 
-def _performRailFenceTransposition(): # MALAK KHALED TASK
+def _performRailFenceTransposition(): # MALAK's Task
     rail_fence=Cipher.RailFenceTransposition() # Create an object of the RailFenceTransposition class
     print("1:encrypt  2:decrypt")
     choice =input("Enter your choice (1 or 2): ") 
@@ -108,13 +84,7 @@ def _performRailFenceTransposition(): # MALAK KHALED TASK
         key = int(input("Enter The Depth (a single number): "))
         print("Decrypted Message:", rail_fence._decryption(CI, key))
 
-    
-    
-
-
-if __name__ == "__main__":
-    columnar_transpos=Cipher.ColumnarTransposition() # Create an object of the TranspositionCipher class
-    real_fence_transpos=Cipher.RailFenceTransposition() # Create an object of the RailFenceTransposition class
+if __name__ == "__main__": # main 
     
     print("Only Columnar Transposition, and Rail Fence Transposition are available now.")
     print("1. Columnar Transposition\n2. Rail Fence Transposition")
@@ -132,7 +102,4 @@ if __name__ == "__main__":
                 print("You have entered wrong choice 3 times.")
                 print("Exiting the program...")
                 exit()
-    
-    
-    
     

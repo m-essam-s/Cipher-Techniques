@@ -1,7 +1,7 @@
 from math import ceil as _roundUp # ceil is a function that rounds up
 class Cipher:
 # constructor
-    class RailFenceTransposition:
+    class RailFenceTransposition: # MALAK's Task
         def __init__(self):
             self._key = "" # Key
             self._plainText = "" # Plain text
@@ -45,7 +45,7 @@ class Cipher:
             return plainText
 
         
-    class ColumnarTransposition: # m-essam-s
+    class ColumnarTransposition: # ESSAM's Task
         # constructor
         def __init__(self):
             self._key = "" # Key
