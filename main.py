@@ -1,6 +1,6 @@
 from TranspositionCiphers.TranspositionCipher import Cipher
 
-def _performColumnarTransposition(): # OMER's Task
+def _performColumnarTransposition(): # OMAR's Task
     columnar_transpose=Cipher.ColumnarTransposition() # Create an object of the TranspositionCipher class
     print("Columnar Transposition Cipher Technique")
     print("You've Three Options:")
