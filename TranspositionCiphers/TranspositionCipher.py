@@ -1,35 +1,38 @@
 from math import ceil as _roundUp # ceil is a function that rounds up
 class Cipher:
-# constructor
+    
     class RailFenceTransposition: # MALAK's Task
+        # constructor
         def __init__(self):
-            self._key = "" # Key
+            self._depth = 0 # Depth
             self._plainText = "" # Plain text
             self._cipherText = "" # Cipher text
-        
-        def _encryption(_plainText, _key):
-            fence = [[] for _ in range(_key)]
+        # Static method to encrypt the plain text using the depth
+        @staticmethod
+        def _encryption(_plainText, _depth):
+            fence = [[] for _ in range(_depth)]
             rail = 0
             direction = 1
             for char in _plainText:
                 fence[rail].append(char)
                 rail += direction
-                if rail == _key - 1 or rail == 0:
+                if rail == _depth - 1 or rail == 0:
                     direction = -direction
             cipherText = ''.join([c for rail in fence for c in rail])
             return cipherText
-        
-        def _decryption(_cipherText, _key):
-            fence = [[] for _ in range(_key)]
+        # Static method to decrypt the cipher text using the depth
+        @staticmethod
+        def _decryption(_cipherText, _depth):
+            fence = [[] for _ in range(_depth)]
             rail = 0
             direction = 1
             for char in _cipherText:
                 fence[rail].append(None)
                 rail += direction
-                if rail ==_key - 1 or rail == 0:
+                if rail ==_depth - 1 or rail == 0:
                     direction = -direction
             idx = 0
-            for i in range(_key):
+            for i in range(_depth):
                 for j in range(len(fence[i])):
                     fence[i][j] = _cipherText[idx]
                     idx += 1
@@ -40,10 +43,9 @@ class Cipher:
                 plainText += fence[rail][0]
                 del fence[rail][0]
                 rail += direction
-                if rail == _key - 1 or rail == 0:
+                if rail == _depth - 1 or rail == 0:
                     direction = -direction
             return plainText
-
         
     class ColumnarTransposition: # ESSAM's Task
         # constructor
